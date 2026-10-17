@@ -275,7 +275,7 @@ const starsOf=id=>LEVELS.map(l=>!!(P.done[id]&&P.done[id][l.k]));
 function home(){
   $("back").hidden=true;window.scrollTo(0,0);
   const totalStars=ALL.reduce((a,s)=>a+starsOf(s.id).filter(Boolean).length,0),max=ALL.length*3;
-  const list=ALL.filter(s=>P.cat==="Todos"||s.cat===P.cat);
+  const list=ALL.filter(s=>(P.cat==="Todos"||s.cat===P.cat)&&!(s.dress&&P.char!=="lia"));
   $("view").innerHTML=`<div style="display:flex;flex-direction:column;gap:14px">
     <h1>Monta o <em>cenário</em></h1>
     <div class="setup">
